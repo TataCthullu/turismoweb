@@ -1,17 +1,16 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seleccionar Destino</title>
 </head>
 <body>
-    <h2>Selecciona un destino:</h2>
+    <h1>Destinos Disponibles</h1>
     <ul>
-        <li><a href="/info-destino?destino=baldurs calilegua">baldurs calilegua</a></li>
-        <li><a href="/info-destino?destino=london">Londres</a></li>
-        <li><a href="/info-destino?destino=newyork">Nueva York</a></li>
-        <!-- Puedes agregar más destinos según tu necesidad -->
+        {% for destino in destinos %}
+        <li><a href="/info-destino/{{ destino[0] }}">{{ destino[0] }}</a></li>
+        {% endfor %}
     </ul>
 </body>
 </html>
