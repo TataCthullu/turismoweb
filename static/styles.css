@@ -20,3 +20,8 @@ button {
 .button-container .right {
     margin-left: 20px;
 }
+
+.logo {
+    width: 100px;
+    height: auto;
+}

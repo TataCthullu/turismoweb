@@ -4,10 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shipi</title>
+    <style>
+        /* Estilos para la imagen de fondo */
+        body {
+            background-image: url("{{ url_for('static', filename='pescavicio.jpg') }}");
+            background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+            background-position: center; /* Centra la imagen en el fondo */
+            height: 100vh; /* Ajusta la altura del cuerpo al 100% de la ventana */
+            margin: 0; /* Elimina los márgenes por defecto */
+            padding: 0; /* Elimina los rellenos por defecto */
+        }
+    </style>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1>Shipi</h1>
+    <h1> <img src="{{ url_for('static', filename='yatsi.png') }}" alt="Logo de Shipi" class="logo"> Shipi</h1>
     <div class="button-container">
         <a href="{{ url_for('seleccionar_destinos') }}"><button>Ver destinos</button></a>
         <a href="{{ url_for('informacion_contacto') }}"><button class="center">Contacto</button></a>
