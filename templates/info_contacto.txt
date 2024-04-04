@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Información de Contacto</title>
+</head>
+<body>
+    <h1>Información de Contacto</h1>
+    <p>¡Contáctanos para obtener más información sobre nuestros servicios!</p>
+    <p>Encuéntranos en nuestras redes sociales:</p>
+    <ul>
+        <li>Facebook: <a href="#">@ShipiViajes</a></li>
+        <li>Twitter: <a href="#">@ShipiViajes</a></li>
+        <li>Instagram: <a href="#">@ShipiViajes</a></li>
+    </ul>
+</body>
+</html>

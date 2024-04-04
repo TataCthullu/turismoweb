@@ -25,6 +25,14 @@ inicializar_base_de_datos()
 def index():
     return render_template('index.html')
 
+@app.route('/info_contacto')
+def informacion_contacto():
+    return render_template('info_contacto.html')
+
+@app.route('/info_empresa')
+def informacion_empresa():
+    return render_template('info_empresa.html')
+
 @app.route('/seleccionar_destinos')
 def seleccionar_destinos():
     conexion = sqlite3.connect('base_de_datos.db')
