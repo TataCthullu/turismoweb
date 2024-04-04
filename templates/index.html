@@ -4,9 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shipi</title>
+    <style>
+        :root {
+            --title-margin-top: 50px;
+            --button-margin-top: 60px;
+            --title-font-size: 36px;
+            --button-font-size: 18px;
+            --button-padding-vertical: 10px;
+            --button-padding-horizontal: 20px;
+        }
+
+        button {
+            position: absolute;
+            top: calc(var(--title-margin-top) + 60px); /* Agregamos 60px al margen superior del título */
+            left: 0;
+            font-size: var(--button-font-size);
+            padding: var(--button-padding-vertical) var(--button-padding-horizontal);
+        }
+
+        h1 {
+            margin-top: var(--title-margin-top);
+            text-align: center;
+            font-size: var(--title-font-size);
+        }
+    </style>
 </head>
 <body>
     <h1>Shipi</h1>
-    <a href="{{ url_for('seleccionar_destinos') }}">Ver destinos</a>
+    <button><a href="{{ url_for('seleccionar_destinos') }}">Ver destinos</a></button>
 </body>
 </html>
