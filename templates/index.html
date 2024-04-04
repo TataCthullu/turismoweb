@@ -1,15 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Inicio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shipi</title>
 </head>
 <body>
-    <h1>¡Shipi!</h1>
-    <p>Selecciona un destino:</p>
-    <form action="{{ url_for('seleccionar_destino') }}" method="post">
-        {% for destino in destinos %}
-            <button type="submit" name="destino" value="{{ destino[0] }}">{{ destino[0] }}</button>
-        {% endfor %}
-    </form>
+    <h1>Shipi</h1>
+    <a href="{{ url_for('seleccionar_destinos') }}">Ver destinos</a>
 </body>
 </html>

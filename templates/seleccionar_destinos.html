@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seleccionar Destino</title>
+    <title>Seleccionar Destinos</title>
 </head>
 <body>
-    <h1>Destinos Disponibles</h1>
+    <h2>Selecciona un destino</h2>
     <ul>
         {% for destino in destinos %}
-        <li><a href="/info-destino/{{ destino[0] }}">{{ destino[0] }}</a></li>
+            <li><a href="{{ url_for('info_destino', destino=destino[0]) }}">{{ destino[0] }}</a></li>
         {% endfor %}
     </ul>
 </body>
