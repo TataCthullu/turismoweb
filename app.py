@@ -14,22 +14,11 @@ def inicializar_base_de_datos():
                     descripcion TEXT
                 )''')
     
-    cursor.execute("SELECT COUNT(*) FROM destinos")
-    cantidad_registros = cursor.fetchone()[0]
-
-    if cantidad_registros == 0:
-        destinos_ejemplo = [
-            ('París', 'La ciudad del amor'),
-            ('Nueva York', 'La ciudad que nunca duerme'),
-            ('Tokio', 'La ciudad más grande del mundo')
-        ]
-        cursor.executemany("INSERT INTO destinos (nombre, descripcion) VALUES (?, ?)", destinos_ejemplo)
-        conexion.commit()
-
     conexion.close()
 
 # Llamar a la función para inicializar la base de datos
 inicializar_base_de_datos()
+
 
 # Ruta para la página de inicio
 @app.route('/')
