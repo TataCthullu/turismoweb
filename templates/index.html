@@ -13,18 +13,56 @@
             height: 100vh; /* Ajusta la altura del cuerpo al 100% de la ventana */
             margin: 0; /* Elimina los márgenes por defecto */
             padding: 0; /* Elimina los rellenos por defecto */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo {
+            width: 100px; /* Ajusta el tamaño del logo según sea necesario */
+            height: auto; /* Mantiene la proporción de aspecto del logo */
+        }
+
+        .title-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px; /* Espacio entre el título y los botones */
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px; /* Espacio entre botones */
+        }
+
+        button {
+            padding: 10px 20px; /* Ajusta el relleno del botón según sea necesario */
+            font-size: 16px; /* Tamaño de la fuente del botón */
         }
     </style>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    <h1> <img src="{{ url_for('static', filename='yatsi.png') }}" alt="Logo de Shipi" class="logo"> Shipi</h1>
+    <div class="title-container">
+        <img src="{{ url_for('static', filename='yatsi.png') }}" alt="Logo de Shipi" class="logo">
+        <h1>Shipi</h1>
+    </div>
     <div class="button-container">
         <a href="{{ url_for('seleccionar_destinos') }}"><button>Ver destinos</button></a>
-        <a href="{{ url_for('informacion_contacto') }}"><button class="center">Contacto</button></a>
-        <a href="{{ url_for('informacion_empresa') }}"><button class="right">Nosotros</button></a>
+        <a href="{{ url_for('informacion_contacto') }}"><button>Contacto</button></a>
+        <a href="{{ url_for('informacion_empresa') }}"><button>Nosotros</button></a>
     </div>
 </body>
 </html>
 
-
+<script>
+    // Evitar entrada fantasma al mover el cursor fuera de los botones
+    const buttons = document.querySelectorAll('button');
+    buttons.forEach(button => {
+        button.addEventListener('mouseover', () => {
+            button.style.cursor = 'pointer';
+        });
+    });
+</script>
