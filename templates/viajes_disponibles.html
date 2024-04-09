@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viajes Disponibles</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> <!-- Enlace a tu archivo de estilos CSS -->
+</head>
+<body>
+    <h1>Viajes Disponibles</h1>
+    <div class="viajes-container">
+        <ul>
+            {% for viaje in viajes %}
+                <li>
+                    <h2>{{ viaje[0] }}</h2>
+                    <p>Fecha de inicio: {{ viaje[1] }}</p>
+                    <p>Fecha de fin: {{ viaje[2] }}</p>
+                    <p>Mínimo de participantes: {{ viaje[3] }}</p>
+                    <p>Máximo de participantes: {{ viaje[4] }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
