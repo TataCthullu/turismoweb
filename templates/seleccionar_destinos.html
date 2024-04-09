@@ -10,13 +10,14 @@
     <div class="destinos-container">
         {% for destino in destinos %}
             {% if destino[0] %} <!-- Verifica si el destino tiene un nombre -->
-                <a href="{{ url_for('info_destino', destino=destino[0]) }}"><button>{{ destino[0] }}</button></a>
-                {% if destino[0] == "Baldour´s Calilewa" %}
-                    <img src="{{ url_for('static', filename='baldu.png') }}" alt="Imagen de Baldour's Calilewa" class="imagen-destino">
-                {% endif %}
-                {% if destino[0] == "Saint Lucas" %}
-                    <img src="{{ url_for('static', filename='saintlucas.png') }}" alt="Imagen de Saint Lucas" class="imagen-destino">
-                {% endif %}
+                <div class="boton-destino">
+                    <a href="{{ url_for('info_destino', destino=destino[0]) }}"><button id="btn-{{ loop.index }}">{{ destino[0] }}</button></a>
+                    {% if destino[0] == "Baldour´s Calilewa" %}
+                        <img src="{{ url_for('static', filename='baldu.png') }}" alt="Imagen de Baldour's Calilewa" class="imagen-destino">
+                    {% elif destino[0] == "Saint Lucas" %}
+                        <img src="{{ url_for('static', filename='saintlucas.png') }}" alt="Imagen de Saint Lucas" class="imagen-destino">
+                    {% endif %}
+                </div>
             {% endif %}
         {% endfor %}
     </div>  
