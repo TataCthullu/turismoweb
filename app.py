@@ -7,7 +7,7 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     # Obtener destinos desde la base de datos
-    destinos = obtener_destinos()
+    destinos = seleccionar_destinos()
     return render_template('index.html', destinos=destinos)
 
 # Función para inicializar la base de datos
@@ -18,7 +18,8 @@ def inicializar_base_de_datos():
     cursor.execute('''CREATE TABLE IF NOT EXISTS destinos (
                     id INTEGER PRIMARY KEY,
                     nombre TEXT,
-                    descripcion TEXT
+                    descripcion TEXT,
+                    imagen TEXT  -- Nueva columna para almacenar el nombre del archivo de imagen
                 )''')
     
     cursor.execute('''CREATE TABLE IF NOT EXISTS viajes (
@@ -41,24 +42,33 @@ def inicializar_base_de_datos():
     
     conexion.close()
 
-# Función para obtener destinos desde la base de datos
-def obtener_destinos():
+@app.route('/seleccionar_destinos')
+def seleccionar_destinos():
     conexion = sqlite3.connect('base_de_datos.db')
     cursor = conexion.cursor()
-    cursor.execute("SELECT DISTINCT nombre FROM destinos")
+     # Consulta para obtener los destinos
+    cursor.execute("SELECT nombre, imagen FROM destinos")
+
     destinos = cursor.fetchall()
     conexion.close()
-    return destinos
+    return render_template('seleccionar_destinos.html', destinos=destinos)
+
+
+# Función para obtener los viajes disponibles desde la base de datos
+def obtener_viajes_disponibles():
+    conexion = sqlite3.connect('base_de_datos.db')
+    cursor = conexion.cursor()
+    cursor.execute("SELECT nombre, fecha_inicio, fecha_fin, min_participantes, max_participantes FROM viajes")
+    viajes = cursor.fetchall()
+    conexion.close()
+    return viajes
 
 @app.route('/viajes_disponibles')
 def viajes_disponibles():
-    conexion = sqlite3.connect('base_de_datos.db')
-    cursor = conexion.cursor()
-    cursor.execute("SELECT destinos.nombre, viajes.fecha_inicio, viajes.fecha_fin, viajes.min_participantes, viajes.max_participantes FROM viajes INNER JOIN destinos ON viajes.id = destinos.id")
-
-    viajes = cursor.fetchall()
-    conexion.close()
+    # Obtener los viajes disponibles desde la base de datos
+    viajes = obtener_viajes_disponibles()
     return render_template('viajes_disponibles.html', viajes=viajes)
+
 
 # Rutas para otras páginas
 @app.route('/info_contacto')
@@ -78,22 +88,6 @@ def info_destino(destino):
     resultado = cursor.fetchone()
     conexion.close()
     return render_template('info_destino.html', destino=resultado)
-
-@app.route('/seleccionar_destinos')
-def seleccionar_destinos():
-    conexion = sqlite3.connect('base_de_datos.db')
-    cursor = conexion.cursor()
-    cursor.execute("SELECT DISTINCT nombre FROM destinos")
-    destinos = cursor.fetchall()
-
-    # Obtener los viajes disponibles
-    cursor.execute("SELECT destinos.nombre, viajes.fecha_inicio, viajes.fecha_fin, viajes.min_participantes, viajes.max_participantes FROM viajes INNER JOIN destinos ON viajes.id = destinos.id")
-
-    viajes = cursor.fetchall()
-
-    conexion.close()
-    return render_template('seleccionar_destinos.html', destinos=destinos, viajes=viajes)
-
 
 if __name__ == '__main__':
     inicializar_base_de_datos()

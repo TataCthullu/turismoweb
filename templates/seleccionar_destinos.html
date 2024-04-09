@@ -11,16 +11,32 @@
         {% for destino in destinos %}
             {% if destino[0] %} <!-- Verifica si el destino tiene un nombre -->
                 <div class="boton-destino">
-                    <a href="{{ url_for('info_destino', destino=destino[0]) }}"><button id="btn-{{ loop.index }}">{{ destino[0] }}</button></a>
-                    {% if destino[0] == "Baldour´s Calilewa" %}
-                        <img src="{{ url_for('static', filename='baldu.png') }}" alt="Imagen de Baldour's Calilewa" class="imagen-destino">
-                    {% elif destino[0] == "Saint Lucas" %}
-                        <img src="{{ url_for('static', filename='saintlucas.png') }}" alt="Imagen de Saint Lucas" class="imagen-destino">
-                    {% endif %}
+                    {% for viaje in viajes %}
+                        {% if viaje[0] == destino[0] %}
+                            <p>Fecha de inicio: {{ viaje[1] }}</p>
+                            <p>Fecha de fin: {{ viaje[2] }}</p>
+                            <p>Mínimo de participantes: {{ viaje[3] }}</p>
+                            <p>Máximo de participantes: {{ viaje[4] }}</p>
+                        {% endif %}
+                    {% endfor %}
                 </div>
             {% endif %}
         {% endfor %}
     </div>  
+    <!-- Agregar el bloque de código para mostrar los destinos con imágenes -->
+    <div class="destinos-container">
+        {% for destino in destinos %}
+            {% if destino[0] %} <!-- Verifica si el destino tiene un nombre -->
+                <div class="boton-destino">
+                    <a href="{{ url_for('info_destino', destino=destino[0]) }}">
+                        <button id="btn-{{ loop.index }}">{{ destino[0] }}</button>
+                        <img src="{{ url_for('static', filename='images/' + destino[1]) }}" alt="Imagen de {{ destino[0] }}" class="imagen-destino">
+                    </a>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+    
     <div class="button-container">
         <a href="{{ url_for('viajes_disponibles') }}"><button>Viajes Disponibles</button></a>
     </div> 

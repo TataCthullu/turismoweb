@@ -1,73 +1,65 @@
+/* Estilos para los botones */
 button {
     font-size: 18px;
     padding: 10px 20px;
 }
 
-.button-container a {
+/* Estilos para los enlaces dentro del contenedor de botones */
+.destinos-container a {
     text-decoration: none;
 }
 
+/* Estilos para el contenedor del título */
 .title-container {
     display: flex;
-    justify-content: space-between; /* Distribuye los elementos de manera uniforme */
-    align-items: center; /* Centra verticalmente los elementos */
-    margin-top: 40px; /* Espacio superior */
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 40px;
 }
 
+/* Estilos para el logotipo */
 .logo {
     width: 100px;
     height: auto;
 }
 
-
- /* Estilos para la imagen de fondo */
- body {
+/* Estilos para el fondo */
+body {
     background-image: url("{{ url_for('static', filename='pescavicio.jpg') }}");
-    background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
-    background-position: center; /* Centra la imagen en el fondo */
-    height: 100vh; /* Ajusta la altura del cuerpo al 100% de la ventana */
-    margin: 0; /* Elimina los márgenes por defecto */
-    padding: 0; /* Elimina los rellenos por defecto */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.button-container a:nth-child(1) {
-    margin-right: auto; /* Empuja el primer botón a la izquierda */
-}
-
-.button-container a:nth-child(2) {
-    margin: 0 auto; /* Centra el segundo botón */
-}
-
-.button-container a:nth-child(3) {
-    margin-left: auto; /* Empuja el tercer botón a la derecha */
-}
-
-/* Estilos para los botones de la página de destinos */
-.destinos-container {
+/* Estilos para el contenedor de botones */
+.button-container {
     display: flex;
     justify-content: center;
-    margin-top: 20px; /* Espacio superior */
+    margin-top: 20px;
 }
 
-.destinos-container a {
-    text-decoration: none;
-}
-
-.destinos-container button {
+/* Estilos para los botones en el contenedor */
+.button-container button {
     font-size: 18px;
     padding: 10px 20px;
-    margin: 0 50px; /* Espacio entre botones */
+    margin: 0 20px; /* Reduce el margen horizontal entre los botones */
+}
+
+
+/* Estilos específicos para el botón "Viajes Disponibles" */
+.button-container a[href="/viajes_disponibles"] button {
+    margin: 0; /* Elimina el margen horizontal del botón "Viajes Disponibles" */
 }
 
 /* Estilos para las imágenes de los destinos */
 .imagen-destino {
-    width: 100px; /* Ajusta el ancho de la imagen según sea necesario */
-    height: auto; /* Mantiene la proporción de aspecto de la imagen */
-    margin-top: 10px; /* Espacio superior entre el botón y la imagen */
+    width: 100px;
+    height: auto;
+    margin-top: 10px;
 }
-
-
