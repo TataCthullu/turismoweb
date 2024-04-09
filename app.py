@@ -10,13 +10,6 @@ def index():
     destinos = obtener_destinos()
     return render_template('index.html', destinos=destinos)
 
-# Ruta para mostrar los viajes disponibles
-@app.route('/viajes_disponibles')
-def viajes_disponibles():
-    # Obtener los viajes disponibles desde la base de datos
-    viajes = obtener_viajes_disponibles()
-    return render_template('viajes_disponibles.html', viajes=viajes)
-
 # Función para inicializar la base de datos
 def inicializar_base_de_datos():
     conexion = sqlite3.connect('base_de_datos.db')
@@ -56,14 +49,16 @@ def obtener_destinos():
     destinos = cursor.fetchall()
     conexion.close()
     return destinos
-# Función para obtener los viajes disponibles desde la base de datos
-def obtener_viajes_disponibles():
+
+@app.route('/viajes_disponibles')
+def viajes_disponibles():
     conexion = sqlite3.connect('base_de_datos.db')
     cursor = conexion.cursor()
-    cursor.execute("SELECT destinos.nombre, viajes.fecha_inicio, viajes.fecha_fin, viajes.min_participantes, viajes.max_participantes FROM viajes INNER JOIN destinos ON viajes.destino_id = destinos.id")
+    cursor.execute("SELECT destinos.nombre, viajes.fecha_inicio, viajes.fecha_fin, viajes.min_participantes, viajes.max_participantes FROM viajes INNER JOIN destinos ON viajes.id = destinos.id")
+
     viajes = cursor.fetchall()
     conexion.close()
-    return viajes
+    return render_template('viajes_disponibles.html', viajes=viajes)
 
 # Rutas para otras páginas
 @app.route('/info_contacto')
@@ -92,7 +87,8 @@ def seleccionar_destinos():
     destinos = cursor.fetchall()
 
     # Obtener los viajes disponibles
-    cursor.execute("SELECT destinos.nombre, viajes.fecha_inicio, viajes.fecha_fin, viajes.min_participantes, viajes.max_participantes FROM viajes INNER JOIN destinos ON viajes.destino_id = destinos.id")
+    cursor.execute("SELECT destinos.nombre, viajes.fecha_inicio, viajes.fecha_fin, viajes.min_participantes, viajes.max_participantes FROM viajes INNER JOIN destinos ON viajes.id = destinos.id")
+
     viajes = cursor.fetchall()
 
     conexion.close()
