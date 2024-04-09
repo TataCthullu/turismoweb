@@ -60,8 +60,14 @@ button {
 .destinos-container button {
     font-size: 18px;
     padding: 10px 20px;
-    margin: 0 10px; /* Espacio entre botones */
+    margin: 0 50px; /* Espacio entre botones */
 }
 
+/* Estilos para las imágenes de los destinos */
+.imagen-destino {
+    width: 100px; /* Ajusta el ancho de la imagen según sea necesario */
+    height: auto; /* Mantiene la proporción de aspecto de la imagen */
+    margin-top: 10px; /* Espacio superior entre el botón y la imagen */
+}
 
 
