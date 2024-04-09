@@ -19,6 +19,20 @@
                 {% endif %}
             {% endif %}
         {% endfor %}
-    </div>       
+    </div>  
+    <div class="viajes-container">
+        <h2>Viajes Disponibles</h2>
+        <ul>
+            {% for destino, detalles in viajes.items() %}
+                <li>
+                    <h3>{{ destino }}</h3>
+                    <p>Fecha de inicio: {{ detalles['fecha_inicio'] }}</p>
+                    <p>Fecha de fin: {{ detalles['fecha_fin'] }}</p>
+                    <p>Mínimo de participantes: {{ detalles['min_participantes'] }}</p>
+                    <p>Máximo de participantes: {{ detalles['max_participantes'] }}</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>     
 </body>
 </html>
