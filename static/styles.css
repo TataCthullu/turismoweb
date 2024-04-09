@@ -3,25 +3,65 @@ button {
     padding: 10px 20px;
 }
 
-.button-container {
-    text-align: center;
-    margin-top: 20px;
-}
-
 .button-container a {
     text-decoration: none;
 }
 
-.button-container .center {
-    margin-left: 20px;
-    margin-right: 20px;
-}
-
-.button-container .right {
-    margin-left: 20px;
+.title-container {
+    display: flex;
+    justify-content: space-between; /* Distribuye los elementos de manera uniforme */
+    align-items: center; /* Centra verticalmente los elementos */
+    margin-top: 40px; /* Espacio superior */
 }
 
 .logo {
     width: 100px;
     height: auto;
 }
+
+
+ /* Estilos para la imagen de fondo */
+ body {
+    background-image: url("{{ url_for('static', filename='pescavicio.jpg') }}");
+    background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+    background-position: center; /* Centra la imagen en el fondo */
+    height: 100vh; /* Ajusta la altura del cuerpo al 100% de la ventana */
+    margin: 0; /* Elimina los márgenes por defecto */
+    padding: 0; /* Elimina los rellenos por defecto */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.button-container a:nth-child(1) {
+    margin-right: auto; /* Empuja el primer botón a la izquierda */
+}
+
+.button-container a:nth-child(2) {
+    margin: 0 auto; /* Centra el segundo botón */
+}
+
+.button-container a:nth-child(3) {
+    margin-left: auto; /* Empuja el tercer botón a la derecha */
+}
+
+/* Estilos para los botones de la página de destinos */
+.destinos-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Espacio superior */
+}
+
+.destinos-container a {
+    text-decoration: none;
+}
+
+.destinos-container button {
+    font-size: 18px;
+    padding: 10px 20px;
+    margin: 0 10px; /* Espacio entre botones */
+}
+
+
+

@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Seleccionar Destinos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> <!-- Agrega el enlace a tu archivo de estilos CSS -->
 </head>
 <body>
-    <h2>Selecciona un destino</h2>
-    <ul>
+    <div class="destinos-container">
         {% for destino in destinos %}
-            <li><a href="{{ url_for('info_destino', destino=destino[0]) }}">{{ destino[0] }}</a></li>
+            {% if destino[0] %} <!-- Verifica si el destino tiene un nombre -->
+                <a href="{{ url_for('info_destino', destino=destino[0]) }}"><button>{{ destino[0] }}</button></a>
+            {% endif %}
         {% endfor %}
-    </ul>
+    </div>    
 </body>
 </html>
