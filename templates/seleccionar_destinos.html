@@ -7,24 +7,9 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}"> <!-- Agrega el enlace a tu archivo de estilos CSS -->
 </head>
 <body>
-    <div class="destinos-container">
-        {% for destino in destinos %}
-            {% if destino[0] %} <!-- Verifica si el destino tiene un nombre -->
-                <div class="boton-destino">
-                    {% for viaje in viajes %}
-                        {% if viaje[0] == destino[0] %}
-                            <p>Fecha de inicio: {{ viaje[1] }}</p>
-                            <p>Fecha de fin: {{ viaje[2] }}</p>
-                            <p>Mínimo de participantes: {{ viaje[3] }}</p>
-                            <p>Máximo de participantes: {{ viaje[4] }}</p>
-                        {% endif %}
-                    {% endfor %}
-                </div>
-            {% endif %}
-        {% endfor %}
-    </div>  
-    <!-- Agregar el bloque de código para mostrar los destinos con imágenes -->
-    <div class="destinos-container">
+     
+     <!-- Agregar el bloque de código para mostrar los destinos con imágenes -->
+     <div class="destinos-container">
         {% for destino in destinos %}
             {% if destino[0] %} <!-- Verifica si el destino tiene un nombre -->
                 <div class="boton-destino">
@@ -36,8 +21,9 @@
             {% endif %}
         {% endfor %}
     </div>
-    
-    <div class="button-container">
+
+    <!-- Botón para ir a la página de viajes disponibles -->
+    <div class="viajes-button-container">
         <a href="{{ url_for('viajes_disponibles') }}"><button>Viajes Disponibles</button></a>
     </div> 
 </body>

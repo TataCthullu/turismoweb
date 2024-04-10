@@ -1,12 +1,30 @@
 /* Estilos para los botones */
-button {
+.button {
     font-size: 18px;
     padding: 10px 20px;
+    margin-right: 20px; /* Ajusta el espaciado entre los botones */
+    cursor: pointer; /* Cambia el cursor al pasar sobre los botones */
 }
 
-/* Estilos para los enlaces dentro del contenedor de botones */
-.destinos-container a {
-    text-decoration: none;
+/* Estilos para los botones de la página principal */
+.principal-button {
+    font-size: 18px;
+    padding: 10px 20px;
+    margin-right: 20px; /* Ajusta el espaciado entre los botones */
+}
+
+/* Estilos para el contenedor de los botones de destinos */
+.destinos-button-container {
+    display: flex; /* Muestra los botones en una fila horizontal */
+    justify-content: space-around; /* Distribuye los botones de manera uniforme */
+    margin-top: 20px; /* Margen superior para separar los botones del contenido superior */
+}
+
+/* Estilos para el contenedor de los botones de viajes disponibles */
+.viajes-button-container {
+    display: flex;
+    justify-content: space-around; /* Distribuye los botones de manera uniforme */
+    margin-top: 20px; /* Margen superior para separar los botones del contenido superior */
 }
 
 /* Estilos para el contenedor del título */
@@ -37,29 +55,8 @@ body {
     align-items: center;
 }
 
-/* Estilos para el contenedor de botones */
-.button-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-/* Estilos para los botones en el contenedor */
-.button-container button {
-    font-size: 18px;
-    padding: 10px 20px;
-    margin: 0 20px; /* Reduce el margen horizontal entre los botones */
-}
-
-
-/* Estilos específicos para el botón "Viajes Disponibles" */
-.button-container a[href="/viajes_disponibles"] button {
-    margin: 0; /* Elimina el margen horizontal del botón "Viajes Disponibles" */
-}
-
 /* Estilos para las imágenes de los destinos */
 .imagen-destino {
     width: 100px;
     height: auto;
-    margin-top: 10px;
 }
